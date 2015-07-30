@@ -42,7 +42,7 @@
             </executions>
             <configuration>
                 <testFilesIncluded>
-                    <jMeterTestFile>UAT-Public-Paintnite_V2.jmx</jMeterTestFile>
+                    <jMeterTestFile>UAT-Public-Paintnite_V3.jmx</jMeterTestFile>
                 </testFilesIncluded>
                 <!--
                    By default the test results are saved in a file
