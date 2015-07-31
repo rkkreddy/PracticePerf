@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+<jmeterTestPlan version="1.2" properties="2.6" jmeter="2.11 r1554548">
   <hashTree>
     <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
       <stringProp name="TestPlan.comments"></stringProp>
@@ -33,18 +33,18 @@
             <stringProp name="Argument.value">${__P(app.protocol, https)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="NO.OF.THREADS" elementType="Argument">
-            <stringProp name="Argument.name">NO.OF.THREADS</stringProp>
+          <elementProp name="NOOFTHREADS" elementType="Argument">
+            <stringProp name="Argument.name">NOOFTHREADS</stringProp>
             <stringProp name="Argument.value">${__P(thgrp.no.of.threads, 10)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="RAMP.UP" elementType="Argument">
-            <stringProp name="Argument.name">RAMP.UP</stringProp>
+          <elementProp name="RAMPUP" elementType="Argument">
+            <stringProp name="Argument.name">RAMPUP</stringProp>
             <stringProp name="Argument.value">${__P(thgrp.ramp.up, 50)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="LOOP.COUNT" elementType="Argument">
-            <stringProp name="Argument.name">LOOP.COUNT</stringProp>
+          <elementProp name="LOOPCOUNT" elementType="Argument">
+            <stringProp name="Argument.name">LOOPCOUNT</stringProp>
             <stringProp name="Argument.value">${__P(thgrp.loop.count, 1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
@@ -55,10 +55,10 @@
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">${LOOP.COUNT}</stringProp>
+          <stringProp name="LoopController.loops">${LOOPCOUNT}</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${NO.OF.THREADS}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">${RAMP.UP}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${NOOFTHREADS}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${RAMPUP}</stringProp>
         <longProp name="ThreadGroup.start_time">1434984453000</longProp>
         <longProp name="ThreadGroup.end_time">1434984453000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -728,7 +728,6 @@
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
-          <name>saveConfig</name>
           <value class="SampleSaveConfiguration">
             <time>true</time>
             <latency>true</latency>
@@ -756,7 +755,6 @@
           </value>
         </objProp>
         <objProp>
-          <name></name>
           <value class="SampleSaveConfiguration">
             <time>true</time>
             <latency>true</latency>
