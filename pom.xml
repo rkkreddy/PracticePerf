@@ -7,21 +7,22 @@
     <groupId>Paintnite</groupId>
     <artifactId>NextGen</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <profiles>
         <profile>
             <id>UAT</id>
             <properties>
-                <performancetest.webservice.host>uat-public.paintnite.com</performancetest.webservice.host>
-                <performancetest.webservice.port>443</performancetest.webservice.port>
-                <performancetest.webservice.protocol>https</performancetest.webservice.protocol>
+                <application.host>uat-public.paintnite.com</application.host>
+                <application.port>443</application.port>
+                <application.protocol>>https</application.protocol>
             </properties>
         </profile>
         <profile>
             <id>TECHLOGIX</id>
             <properties>
-                <performancetest.webservice.host>testing-techlogix.paintnite.com</performancetest.webservice.host>
-                <performancetest.webservice.port>80</performancetest.webservice.port>
-                <performancetest.webservice.protocol>http</performancetest.webservice.protocol>
+                <application.host>testing-techlogix.paintnite.com</application.host>
+                <application.port>80</application.port>
+                <application.protocol>http</application.protocol>
             </properties>
         </profile>
     </profiles>
@@ -42,7 +43,7 @@
             </executions>
             <configuration>
                 <testFilesIncluded>
-                    <jMeterTestFile>UAT-Public-Paintnite_V3.jmx</jMeterTestFile>
+                    <jMeterTestFile>UAT-Public-Paintnite_V4.jmx</jMeterTestFile>
                 </testFilesIncluded>
                 <!--
                    By default the test results are saved in a file
@@ -73,9 +74,12 @@
                 <ignoreResultFailures>true</ignoreResultFailures>
 
                 <propertiesUser>
-                    <webservice.host>${performancetest.webservice.host}</webservice.host>
-                    <webservice.port>${performancetest.webservice.port}</webservice.port>
-                    <webservice.protocol>${performancetest.webservice.protocol}</webservice.protocol>
+                    <app.host>${application.host}</app.host>
+                    <app.port>${application.port}</app.port>
+                    <app.protocol>${application.protocol}</app.protocol>
+                    <thgrp.no.of.threads>${thgrp.no.of.threads}</thgrp.no.of.threads>
+                    <thgrp.ramp.up>${thgrp.ramp.up}</thgrp.ramp.up>
+                    <thgrp.no.of.threads>${thgrp.no.of.threads}</thgrp.no.of.threads>
                 </propertiesUser>
             </configuration>
             <dependencies>

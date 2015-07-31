@@ -11,14 +11,54 @@
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
     <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="Env" elementType="Argument">
+            <stringProp name="Argument.name">Env</stringProp>
+            <stringProp name="Argument.value">${__P(app.environment, UAT)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="HOST" elementType="Argument">
+            <stringProp name="Argument.name">HOST</stringProp>
+            <stringProp name="Argument.value">${__P(app.host, uat-public.paintnite.com)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="PORT" elementType="Argument">
+            <stringProp name="Argument.name">PORT</stringProp>
+            <stringProp name="Argument.value">${__P(app.port, 443)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="PROTOCOL" elementType="Argument">
+            <stringProp name="Argument.name">PROTOCOL</stringProp>
+            <stringProp name="Argument.value">${__P(app.protocol, https)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="NO.OF.THREADS" elementType="Argument">
+            <stringProp name="Argument.name">NO.OF.THREADS</stringProp>
+            <stringProp name="Argument.value">${__P(thgrp.no.of.threads, 10)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="RAMP.UP" elementType="Argument">
+            <stringProp name="Argument.name">RAMP.UP</stringProp>
+            <stringProp name="Argument.value">${__P(thgrp.ramp.up, 50)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="LOOP.COUNT" elementType="Argument">
+            <stringProp name="Argument.name">LOOP.COUNT</stringProp>
+            <stringProp name="Argument.value">${__P(thgrp.loop.count, 1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="NewRecording_WithGroups_Modified" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
-          <stringProp name="LoopController.loops">1</stringProp>
+          <stringProp name="LoopController.loops">${LOOP.COUNT}</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${NO.OF.THREADS}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${RAMP.UP}</stringProp>
         <longProp name="ThreadGroup.start_time">1434984453000</longProp>
         <longProp name="ThreadGroup.end_time">1434984453000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
@@ -46,28 +86,7 @@
           </collectionProp>
         </Arguments>
         <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="Env" elementType="Argument">
-              <stringProp name="Argument.name">Env</stringProp>
-              <stringProp name="Argument.value">${__P(application.environment, UAT)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-              <stringProp name="Argument.desc">${__P(webservice.protocol,https)}</stringProp>
-            </elementProp>
-            <elementProp name="UAT-PaintNite" elementType="Argument">
-              <stringProp name="Argument.name">UAT-PaintNite</stringProp>
-              <stringProp name="Argument.value">${__P(application.host, uat-public.paintnite.com)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="PORT" elementType="Argument">
-              <stringProp name="Argument.name">PORT</stringProp>
-              <stringProp name="Argument.value">${__P(application.port, 443)}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables_with Properties" enabled="true">
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables_with Properties" enabled="false">
           <collectionProp name="Arguments.arguments">
             <elementProp name="Env" elementType="Argument">
               <stringProp name="Argument.name">Env</stringProp>
@@ -135,11 +154,11 @@
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${__P(webservice.host)}</stringProp>
-            <stringProp name="HTTPSampler.port">${__P(webservice.port)}</stringProp>
+            <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+            <stringProp name="HTTPSampler.port">${PORT}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="HTTPSampler.protocol">${__P(webservice.protocol)}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -227,11 +246,11 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${__P(webservice.host)}</stringProp>
-            <stringProp name="HTTPSampler.port">${__P(webservice.port)}</stringProp>
+            <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+            <stringProp name="HTTPSampler.port">${PORT}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="HTTPSampler.protocol">${__P(webservice.protocol)}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/pages/events/get_calendar_data/boston</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -247,7 +266,7 @@
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Referer" elementType="Header">
                   <stringProp name="Header.name">Referer</stringProp>
-                  <stringProp name="Header.value">${__P(webservice.protocol)}://${__P(webservice.host)}/pages/events/index/geo_location</stringProp>
+                  <stringProp name="Header.value">${PROTOCOL}://${HOST}/pages/events/index/geo_location</stringProp>
                 </elementProp>
                 <elementProp name="Accept-Language" elementType="Header">
                   <stringProp name="Header.name">Accept-Language</stringProp>
@@ -330,11 +349,11 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${__P(webservice.host)}</stringProp>
-            <stringProp name="HTTPSampler.port">${__P(webservice.port)}</stringProp>
+            <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+            <stringProp name="HTTPSampler.port">${PORT}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="HTTPSampler.protocol">${__P(webservice.protocol)}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/pages/events/get_calendar_data/boston</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -350,7 +369,7 @@
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Referer" elementType="Header">
                   <stringProp name="Header.name">Referer</stringProp>
-                  <stringProp name="Header.value">${__P(webservice.protocol)}://${__P(webservice.host)}/pages/events/index/geo_location</stringProp>
+                  <stringProp name="Header.value">${PROTOCOL}://${HOST}/pages/events/index/geo_location</stringProp>
                 </elementProp>
                 <elementProp name="Accept-Language" elementType="Header">
                   <stringProp name="Header.name">Accept-Language</stringProp>
@@ -392,11 +411,11 @@
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${__P(webservice.host)}</stringProp>
-            <stringProp name="HTTPSampler.port">${__P(webservice.port)}</stringProp>
+            <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+            <stringProp name="HTTPSampler.port">${PORT}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="HTTPSampler.protocol">${__P(webservice.protocol)}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
             <stringProp name="HTTPSampler.path">/boston/buytickets/${EventID}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -412,7 +431,7 @@
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Referer" elementType="Header">
                   <stringProp name="Header.name">Referer</stringProp>
-                  <stringProp name="Header.value">${__P(webservice.protocol)}://${__P(webservice.host)}/pages/events/index/geo_location</stringProp>
+                  <stringProp name="Header.value">${PROTOCOL}://${HOST}/pages/events/index/geo_location</stringProp>
                 </elementProp>
                 <elementProp name="Accept-Language" elementType="Header">
                   <stringProp name="Header.name">Accept-Language</stringProp>
@@ -470,11 +489,11 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${__P(webservice.host)}</stringProp>
-            <stringProp name="HTTPSampler.port">${__P(webservice.port)}</stringProp>
+            <stringProp name="HTTPSampler.domain">${HOST}</stringProp>
+            <stringProp name="HTTPSampler.port">${PORT}</stringProp>
             <stringProp name="HTTPSampler.connect_timeout"></stringProp>
             <stringProp name="HTTPSampler.response_timeout"></stringProp>
-            <stringProp name="HTTPSampler.protocol">${__P(webservice.protocol)}</stringProp>
+            <stringProp name="HTTPSampler.protocol">${PROTOCOL}</stringProp>
             <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
             <stringProp name="HTTPSampler.path">/ajax.php</stringProp>
             <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -490,7 +509,7 @@
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Referer" elementType="Header">
                   <stringProp name="Header.name">Referer</stringProp>
-                  <stringProp name="Header.value">${__P(webservice.protocol)}://${__P(webservice.host)}/boston/buytickets/${EventID}</stringProp>
+                  <stringProp name="Header.value">${PROTOCOL}://${HOST}/boston/buytickets/${EventID}</stringProp>
                 </elementProp>
                 <elementProp name="Accept-Language" elementType="Header">
                   <stringProp name="Header.name">Accept-Language</stringProp>
@@ -498,7 +517,7 @@
                 </elementProp>
                 <elementProp name="Origin" elementType="Header">
                   <stringProp name="Header.name">Origin</stringProp>
-                  <stringProp name="Header.value">https://uat-public.paintnite.com</stringProp>
+                  <stringProp name="Header.value">${PROTOCOL}://${HOST}</stringProp>
                 </elementProp>
                 <elementProp name="Accept" elementType="Header">
                   <stringProp name="Header.name">Accept</stringProp>
@@ -551,7 +570,7 @@
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Referer" elementType="Header">
                   <stringProp name="Header.name">Referer</stringProp>
-                  <stringProp name="Header.value">https://uat-public.paintnite.com/boston/buytickets/${EventID}</stringProp>
+                  <stringProp name="Header.value">${PROTOCOL}://${HOST}/boston/buytickets/${EventID}</stringProp>
                 </elementProp>
                 <elementProp name="Accept-Language" elementType="Header">
                   <stringProp name="Header.name">Accept-Language</stringProp>
@@ -559,7 +578,7 @@
                 </elementProp>
                 <elementProp name="Origin" elementType="Header">
                   <stringProp name="Header.name">Origin</stringProp>
-                  <stringProp name="Header.value">https://uat-public.paintnite.com</stringProp>
+                  <stringProp name="Header.value">${PROTOCOL}://${HOST}</stringProp>
                 </elementProp>
                 <elementProp name="Accept" elementType="Header">
                   <stringProp name="Header.name">Accept</stringProp>
@@ -662,7 +681,7 @@
               <collectionProp name="HeaderManager.headers">
                 <elementProp name="Referer" elementType="Header">
                   <stringProp name="Header.name">Referer</stringProp>
-                  <stringProp name="Header.value">https://js.stripe.com/v2/channel.html?stripe_xdm_e=https%3A%2F%2Fuat-public.paintnite.com&amp;stripe_xdm_c=default690622&amp;stripe_xdm_p=1</stringProp>
+                  <stringProp name="Header.value">https://js.stripe.com/v2/channel.html?stripe_xdm_e=${PROTOCOL}%3A%2F%2F${HOST}&amp;stripe_xdm_c=default690622&amp;stripe_xdm_p=1</stringProp>
                 </elementProp>
                 <elementProp name="Accept-Language" elementType="Header">
                   <stringProp name="Header.name">Accept-Language</stringProp>
