@@ -12,17 +12,17 @@
         <profile>
             <id>UAT</id>
             <properties>
-                <application.host>uat-public.paintnite.com</application.host>
-                <application.port>443</application.port>
-                <application.protocol>>https</application.protocol>
+                <app.host>uat-public.paintnite.com</app.host>
+                <app.port>443</app.port>
+                <app.protocol>https</app.protocol>
             </properties>
         </profile>
         <profile>
             <id>TECHLOGIX</id>
             <properties>
-                <application.host>testing-techlogix.paintnite.com</application.host>
-                <application.port>80</application.port>
-                <application.protocol>http</application.protocol>
+                <app.host>testing-techlogix.paintnite.com</app.host>
+                <app.port>80</app.port>
+                <app.protocol>http</app.protocol>
             </properties>
         </profile>
     </profiles>
@@ -74,9 +74,9 @@
                 <ignoreResultFailures>true</ignoreResultFailures>
 
                 <propertiesUser>
-                    <app.host>${application.host}</app.host>
-                    <app.port>${application.port}</app.port>
-                    <app.protocol>${application.protocol}</app.protocol>
+                    <app.host>${appl.host}</app.host>
+                    <app.port>${appl.port}</app.port>
+                    <app.protocol>${appl.protocol}</app.protocol>
                     <thgrp.no.of.threads>${thgrp.no.of.threads}</thgrp.no.of.threads>
                     <thgrp.ramp.up>${thgrp.ramp.up}</thgrp.ramp.up>
                     <thgrp.no.of.threads>${thgrp.no.of.threads}</thgrp.no.of.threads>
