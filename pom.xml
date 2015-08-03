@@ -12,17 +12,17 @@
         <profile>
             <id>UAT</id>
             <properties>
-                <app.host>uat-public.paintnite.com</app.host>
-                <app.port>443</app.port>
-                <app.protocol>https</app.protocol>
+                <appl.host>uat-public.paintnite.com</appl.host>
+                <appl.port>443</appl.port>
+                <appl.protocol>https</appl.protocol>
             </properties>
         </profile>
         <profile>
             <id>TECHLOGIX</id>
             <properties>
-                <app.host>testing-techlogix.paintnite.com</app.host>
-                <app.port>443</app.port>
-                <app.protocol>https</app.protocol>
+                <appl.host>testing-techlogix.paintnite.com</appl.host>
+                <appl.port>443</appl.port>
+                <appl.protocol>https</appl.protocol>
             </properties>
         </profile>
     </profiles>
